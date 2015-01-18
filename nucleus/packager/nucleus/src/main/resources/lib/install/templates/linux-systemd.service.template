@@ -1,0 +1,15 @@
+[Unit]
+Description=GlassFish %%%TYPE%%% Service
+
+[Service]
+Type=forking
+GuessMainPID=true
+ExecStart=%%%AS_ADMIN_PATH%%% %%%START_COMMAND%%% %%%CREDENTIALS%%% %%%LOCATION_ARGS_START%%% %%%ENTITY_NAME%%%
+ExecStop=%%%AS_ADMIN_PATH%%% %%%STOP_COMMAND%%%  %%%LOCATION_ARGS_STOP%%% %%%ENTITY_NAME%%%
+ExecReload=%%%AS_ADMIN_PATH%%% %%%RESTART_COMMAND%%%  %%%LOCATION_ARGS_RESTART%%% %%%ENTITY_NAME%%%
+RemainAfterExit=yes
+%%%SERVICEUSER_START%%% %%%SERVICEUSER_STOP%%%
+
+[Install]
+WantedBy=multi-user.target
+
